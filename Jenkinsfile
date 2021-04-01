@@ -6,7 +6,7 @@ pipeline {
                 echo 'Image done'
             } 
         }  
-         stage ('Build Docker image'){
+         stage ('Run containere'){
             steps{
                 sh 'docker run -d --name drupalx -p 8888:80 9402ba58779f'
             } 
