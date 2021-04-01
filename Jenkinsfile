@@ -6,5 +6,16 @@ pipeline {
                 echo 'xxx'
             }
         }
+        stage('Push') {
+            node {
+                checkout scm
+
+                    docker.withRegistry('https://registry.dockerhub.com', 'dockerHub') {
+                    def customImage = docker.build("my-image:${env.BUILD_ID}")
+                    customImage.push()
+                }
+            }
+            }
+        }
     }
 }
