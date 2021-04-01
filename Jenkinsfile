@@ -4,7 +4,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'xxx'
-                sh 'echo my customVar = $mycustomVar'
+                sh 'echo my customVar = $customVar'
             }
         }
     }
