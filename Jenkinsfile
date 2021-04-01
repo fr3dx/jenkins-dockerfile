@@ -9,7 +9,7 @@ pipeline {
         stage('Push') {
             steps {
                 checkout scm
-                    docker.withRegistry('https://hub.docker.com/repository/docker/ferencmolnar/jenkins-docker', 'dockerHub') {
+                    docker.withRegistry('https://registry.hub.docker.com/', 'dockerHub') {
                     def customImage = docker.build("my-image:${env.BUILD_ID}")
                     customImage.push()
                 }
